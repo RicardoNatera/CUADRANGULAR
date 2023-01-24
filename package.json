@@ -1,0 +1,25 @@
+{
+  "name": "cuadrangular",
+  "version": "1.0.0",
+  "description": "<a name=\"top\"></a>\r # App para el control de entrada y salida para el servicio infantil de la Cuadrangular",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm --prefix ./back/server/ run startDev",
+    "client": "npm --prefix ./front/webpage/ run start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RicardoNatera/CUADRANGULAR.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RicardoNatera/CUADRANGULAR/issues"
+  },
+  "homepage": "https://github.com/RicardoNatera/CUADRANGULAR#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
