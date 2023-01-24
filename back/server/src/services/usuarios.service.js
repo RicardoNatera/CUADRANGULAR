@@ -4,16 +4,17 @@ const helper = require('../utils/helper.util');
 
 async function getUserByEmail(email){
     const rows = await db.query(
-      `SELECT id, hash FROM usuarios WHERE email = '${email}'`
+      'SELECT id, hash FROM usuarios WHERE email = ? LIMIT 1', 
+      [email]
     );
     const data = helper.emptyOrRows(rows);
-  
     return data;
 }
 
 async function getUserByEmailOrUser(email,usuario){
     const rows = await db.query(
-        `SELECT id, hash FROM usuarios WHERE usuario = '${usuario}' OR email = '${email}'`
+        'SELECT id, hash FROM usuarios WHERE usuario = ? OR email = ? LIMIT 1',
+        [usuario,email]
     );
     const data = helper.emptyOrRows(rows);
   
@@ -22,7 +23,8 @@ async function getUserByEmailOrUser(email,usuario){
 
 async function getUserById(id){
     const rows = await db.query(
-      `SELECT id FROM usuarios WHERE id = '${id}'`
+      'SELECT id FROM usuarios WHERE id = ? LIMIT 1', 
+      [id]
     );
     const data = helper.emptyOrRows(rows);
   
@@ -31,7 +33,8 @@ async function getUserById(id){
 
 async function getIsAdminById(id){
     const rows = await db.query(
-      `SELECT isAdmin FROM usuarios WHERE id = '${id}'`
+      'SELECT isAdmin FROM usuarios WHERE id = ? LIMIT 1', 
+      [id]
     );
     const data = helper.emptyOrRows(rows);
   
@@ -40,7 +43,8 @@ async function getIsAdminById(id){
 
 async function getUserInfoById(id){
     const rows = await db.query(
-      `SELECT id, usuario, email, isAdmin FROM usuarios WHERE id = '${id}'`
+      'SELECT id, usuario, email, isAdmin FROM usuarios WHERE id = ? LIMIT 1', 
+      [id]
     );
     const data = helper.emptyOrRows(rows);
   
