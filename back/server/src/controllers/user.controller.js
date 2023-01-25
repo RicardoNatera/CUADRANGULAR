@@ -7,9 +7,13 @@ const usuarios = require('../services/usuarios.service');
 //@route POST /users
 //@access Public
 const registerUser = asyncHandler(async (req,res)=>{
-    const {usuario,email,isAdmin,password} = req.body
+    const {usuario,email,password} = req.body
+    var {isAdmin} = req.body
 
-    if(!usuario || !email || !password || !isAdmin){
+    if(!isAdmin){
+        isAdmin = false
+    }
+    if(!usuario || !email || !password){
         res.status(400)
         throw new Error('Please add all fields')
     }
