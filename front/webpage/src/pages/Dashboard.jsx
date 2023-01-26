@@ -2,6 +2,8 @@ import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
+import GruposForm from "../components/GruposForm"
+
 function Dashboard() {
   const navigate = useNavigate()
 
@@ -12,7 +14,14 @@ function Dashboard() {
       navigate('/login')
   },[user,navigate])
   return (
-    <div>Dashboard</div>
+    <>
+      <section className="heading">
+        <h1>Bienvenido {user && user.id}</h1>
+        <p>Grupos Dashboard</p>
+      </section>
+
+      <GruposForm/>
+    </>
   )
 }
 
