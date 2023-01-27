@@ -20,11 +20,13 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre El Proyecto
 
-:church: La iglesia Cuadrangular enseña a los niños sobre el poder del Espíritu Santo en su programa infantil, y el impacto va más allá de las paredes de la iglesia, en estas clases se reciben niños a partir de los 3 años, y son agrupados por edades. :baby: :child: :girl:
+Esta página web proporcionará una plataforma para los miembros de la Iglesia Cuadrangular a fin de administrar las entradas :arrow_down: y salidas :arrow_up: de niños en sus programas del ministerio infantil :school_satchel:. Los usuarios pueden crear y editar registros para los niños que asisten :file_folder:, administrar la información de contacto de los maestros :open_file_folder: y controlar cada grupo de estudio por edades. :pencil2:
 
-Sabiendo la importancia que tienen los niños, es necesario un sistema para controlar la entrada y salida de ellos a las clases, esta aplicación debe permitir:
-* Asociar una tarjeta a un grupo y maestro en específico :children_crossing:.
-* Permitir la lectura del código de la tarjeta para su validación :flower_playing_cards:.
+:church: La Iglesia Cuadrangular enseña a los niños sobre el poder del Espíritu Santo en su programa infantil, y el impacto va más allá de las paredes de la iglesia, en estas clases se reciben niños a partir de los 3 años, y son agrupados por edades. :baby: :child: :girl:
+
+Teniendo en cuenta la importancia que tienen los niños, es necesario un sistema para controlar la entrada y salida de ellos a las clases, esta aplicación debe permitir:
+* Asociar una tarjeta a un grupo y maestro en específico. :children_crossing:
+* Permitir la lectura del código de la tarjeta para su validación. :flower_playing_cards:
 * Gestionar los datos de los diferentes usuarios, grupos y maestros en el sistema. :spiral_notepad:
 
 <p align="right">(<a href="#top">Inicio</a>)</p>
@@ -60,6 +62,7 @@ Link del proyecto: [https://github.com/RicardoNatera/CUADRANGULAR](https://githu
 <!-- Reconocimientos -->
 ## Reconocimientos
 
+* [JSON WEB TOKEN](https://jwt.io/)
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
 
