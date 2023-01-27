@@ -1,46 +1,67 @@
-# Getting Started with Create React App and Redux
+# Sobre el proyecto
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+Esta parte del proyecto implica el uso de tecnologías modernas para crear un sitio web interactivo y atractivo. 
+Está desarrollado en React.js, Redux y Axios para ofrecer una experiencia de usuario rica y fluida, los componentes reutilizables de React permiten a los desarrolladores crear interfaces de usuario personalizadas que permitan a los visitantes acceder fácilmente a la información que necesitan, Redux garantiza la confiabilidad de la aplicación, mientras que Axios le permite conectar la interfaz de usuario con una API robusta para almacenar datos.
 
-## Available Scripts
+# Primeros pasos con Create React App y Redux
 
-In the project directory, you can run:
+Este proyecto se inició con [Create React App](https://github.com/facebook/create-react-app), utilizando [Redux](https://redux.js.org/) y [Redux Toolkit](https://redux-toolkit.js.org/) template.
+
+## Scripts Disponibles
+
+En el directorio del proyecto puede ejecutar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Ejecuta la aplicacion en modo de desarrollo.\
+Abre [http://localhost:3000](http://localhost:3000) para visualizarlo en el buscador.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La página se refrescará al realizar algún cambio.\
+También puede ver cualquier lint error en la consola.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia el ejecutor de pruebas en el modo de vigilancia interactiva.\
+Consulte la sección sobre [ejecución de pruebas](https://facebook.github.io/create-react-app/docs/running-tests) para más información.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la aplicación para producción en la carpeta `build`.
+Agrupa correctamente React en modo de producción y optimiza la compilación para obtener el mejor rendimiento.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La compilación está minificada y los nombres de archivo incluyen los hashes.\
+Tu aplicación está lista para ser desplegada.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Consulte la sección sobre [despliegue](https://facebook.github.io/create-react-app/docs/deployment) para más información.
 
-### `npm run eject`
+### Tecnologías Usadas
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* [![React][React.js]][React-url]
+* [![Redux][Redux.js]][Redux-url] 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- CONTACT -->
+## Contacto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[![LinkedIn][linkedin-shield]][linkedin-url] 
 
-## Learn More
+Ricardo Natera - ricardoantonionaterasubero@gmail.com
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Link del proyecto: [https://github.com/RicardoNatera/CUADRANGULAR](https://github.com/RicardoNatera/CUADRANGULAR)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+<!-- Reconocimientos -->
+## Reconocimientos
+
+* [Axios](https://axios-http.com/docs/intro/)
+* [Font Awesome](https://fontawesome.com)
+* [React Icons](https://react-icons.github.io/react-icons/search)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=blue
+[linkedin-url]: https://www.linkedin.com/in/natera-dev/
+[Redux.js]: https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white
+[Redux-url]: https://redux.js.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
