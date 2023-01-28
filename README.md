@@ -63,6 +63,7 @@ Link del proyecto: [https://github.com/RicardoNatera/CUADRANGULAR](https://githu
 ## Reconocimientos
 
 * [JSON WEB TOKEN](https://jwt.io/)
+* [Axios](https://axios-http.com/docs/intro/)
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
 
