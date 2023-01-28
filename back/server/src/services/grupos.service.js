@@ -82,10 +82,11 @@ const result = await db.query(
 let message = 'Error in deleting Group';
 
 if (result.affectedRows) {
+    
     message = 'Group deleted successfully';
 }
 
-return message;
+return id;
 }
 
 module.exports = {

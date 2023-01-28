@@ -19,6 +19,29 @@ try {
 }
 })
 
+//Get all groups
+export const getGroups = createAsyncThunk('grupos/getAllGroups',async(args,thunkAPI)=>{
+    try {
+        
+        const token = thunkAPI.getState().auth.user.token
+        return await gruposService.getAllGroup(token)
+        
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+    })
+
+//Delete a group
+export const deleteGroup = createAsyncThunk('grupos/delete',async(groupId,thunkAPI)=>{
+    try {
+        const token = thunkAPI.getState().auth.user.token
+        return await gruposService.deleteGroup(groupId,token)
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+    })
 export const gruposSlice = createSlice({
     name:'grupos',
     initialState,
@@ -36,6 +59,32 @@ export const gruposSlice = createSlice({
             state.grupos.push(action.payload)
         })
         .addCase(createGroup.rejected, (state, action)=>{
+            state.isLoading=false
+            state.isError=true
+            state.message=action.payload
+        })
+        .addCase(getGroups.pending, (state)=>{
+            state.isLoading=true
+        })
+        .addCase(getGroups.fulfilled, (state,action)=>{
+            state.isLoading=false
+            state.isSuccess=true
+            state.grupos = action.payload
+        })
+        .addCase(getGroups.rejected, (state, action)=>{
+            state.isLoading=false
+            state.isError=true
+            state.message=action.payload
+        })
+        .addCase(deleteGroup.pending, (state)=>{
+            state.isLoading=true
+        })
+        .addCase(deleteGroup.fulfilled, (state, action)=>{
+            state.isLoading=false
+            state.isSuccess=true
+            state.grupos = state.grupos.filter((grupo)=> grupo.id_grupo !== action.payload.id)
+        })
+        .addCase(deleteGroup.rejected, (state, action)=>{
             state.isLoading=false
             state.isError=true
             state.message=action.payload

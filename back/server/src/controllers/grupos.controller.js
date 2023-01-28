@@ -77,18 +77,18 @@ const getAll = asyncHandler(async (req,res)=>{
 // @route   DELETE /groups/:id
 // @access  Private
 const deleteGroup = asyncHandler(async (req, res) => {
-    const result = await grupos.getGroupById(req.params,id)
+    const result = await grupos.getGroupById(req.params.id)
   
     if (result.length==0) {
       res.status(400)
       throw new Error('Group not found')
     }
   
-    const grupo=result[0]
+    const grupo=result
   
-    await grupos.remove(grupo.id_group)
+    const response = await grupos.remove(grupo.id_grupo)
   
-    res.status(200).json({ id: req.params.id })
+    res.status(200).json({ id:response })
   })
 
 module.exports = {
