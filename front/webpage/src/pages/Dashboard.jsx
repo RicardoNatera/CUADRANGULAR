@@ -23,9 +23,6 @@ function Dashboard() {
     if(!user){
       navigate('/login')
     }else{
-      console.log("hola bucle")
-
-    
       dispatch(getGroups())
     }
     return ()=>{
