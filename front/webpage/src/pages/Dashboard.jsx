@@ -20,39 +20,46 @@ function Dashboard() {
       console.log(message)
     }
     
-    if(!user)
+    if(!user){
       navigate('/login')
+    }else{
+      console.log("hola bucle")
 
-    dispatch(getGroups())
-
+    
+      dispatch(getGroups())
+    }
     return ()=>{
       dispatch(reset())
     }
 
   },[user,navigate,isError,message,dispatch])
 
-  if(isLoading)
-    return <Spinner/> 
-  return (
-    <>
-      <section className="heading">
-        <h1>Bienvenido {user && user.id}</h1>
-        <p>Grupos Dashboard</p>
-      </section>
+    if(isLoading){
+      return (
+        <Spinner/>
+      ) 
+    }
 
-      <GruposForm/>
-      <section className="content">
-        {grupos.length > 0 ? (
-        <div>
-          <div className="grupos">
-            {grupos.map((grupo)=>(
-              <GroupItem key={grupo.id_grupo} grupo={grupo}/>
-            ))}
-          </div>
-        </div>):(<h3>No hay ningun grupo</h3>)}
-      </section>
-    </>
-  )
+    return (
+      <>
+        <section className="heading">
+          <h1>Bienvenido {user && user.id}</h1>
+          <p>Grupos Dashboard</p>
+        </section>
+
+        <GruposForm/>
+        <section className="content">
+          {grupos.length > 0 ? (
+          <div>
+            <div className="grupos">
+              {grupos.map((grupo)=>(
+                <GroupItem key={grupo.id_grupo} grupo={grupo}/>
+              ))}
+            </div>
+          </div>):(<h3>No hay ningun grupo</h3>)}
+        </section>
+      </>
+    )
 }
 
 export default Dashboard

@@ -14,14 +14,14 @@ function App() {
           <Header/>
           <Routes>
             
-            <Route path='/login' element={<Login />}></Route>
-            <Route path='/register' element={<Register />}></Route>
-            <Route path='/' element={<Dashboard />}></Route>
+            <Route path='/login' element={<Login/>}></Route>
+            <Route path='/register' element={<Register/>}></Route>
+            <Route path='/' element={<Dashboard/>}></Route>
             
           </Routes>
         </div>
       </Router>
-      <ToastContainer />
+      <ToastContainer/>
     </>
   );
 }
