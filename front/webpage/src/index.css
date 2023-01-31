@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #005BA4;
+
+
+}
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -164,7 +184,7 @@ h3 {
   margin: 0 0 5px 3px;
 }
 
-.btn {
+/*.btn {
   padding: 10px 20px;
   border: 1px solid #000;
   border-radius: 5px;
@@ -179,6 +199,7 @@ h3 {
   align-items: center;
   justify-content: center;
 }
+*/
 
 .btn svg {
   margin-right: 8px;
