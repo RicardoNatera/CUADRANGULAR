@@ -101,7 +101,7 @@ function Login() {
       />
       <MDBInput wrapperClass='mb-4' 
       label='Contraseña' 
-      ype="password" 
+      type="password" 
       id='password' 
       name='password' 
       value={password} 
