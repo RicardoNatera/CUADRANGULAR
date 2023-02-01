@@ -1,6 +1,6 @@
 ﻿/*
 Created: 1/18/2023
-Modified: 1/21/2023
+Modified: 2/1/2023
 Model: MySQL 8.0
 Database: MySQL 8.0
 */
@@ -34,6 +34,7 @@ CREATE TABLE `grupos`
   `edadInicio` Int UNSIGNED NOT NULL,
   `edadFinal` Int UNSIGNED NOT NULL,
   `nombre` Char(25) NOT NULL,
+  `color` Char(7),
   PRIMARY KEY (`id_grupo`)
 )
 ;
