@@ -99,6 +99,7 @@ h3 {
 .header.nav{
   border: none;
   border-left: 1px solid #777;
+  margin-bottom: 20px;
 }
 .header.nav ul  {
   padding: 0px;

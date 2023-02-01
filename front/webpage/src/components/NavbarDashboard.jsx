@@ -1,9 +1,10 @@
 function NavBarDashboard({ selected, setSelected }) {
     const lista = ['Grupos','Usuarios','Maestros','Tarjetas']
+    
     const handleClick = (key) =>{
-        console.log(key)
         setSelected(key)
     }
+
   return (
     <nav  className='header nav'>
         <ul>
