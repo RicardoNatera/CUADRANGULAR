@@ -80,6 +80,7 @@ h3 {
 
 .header ul li {
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .header ul li a {
@@ -93,6 +94,19 @@ h3 {
 
 .header ul li a svg {
   margin-right: 5px;
+}
+
+.header.nav{
+  border: none;
+  border-left: 1px solid #777;
+}
+.header.nav ul  {
+  padding: 0px;
+  margin: 0px;
+}
+
+.selected{
+  color:#005BA4;
 }
 
 .heading {
