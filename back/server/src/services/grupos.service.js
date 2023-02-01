@@ -34,11 +34,11 @@ async function getGroupById(id){
 async function create(grupo){
 const result = await db.query(
     `INSERT INTO grupos 
-    (edadInicio, edadFinal, nombre)
+    (edadInicio, edadFinal, nombre, color)
     VALUES 
-    (?, ?, ?)`, 
+    (?, ?, ?, ?)`, 
     [
-    grupo.edadInicial,grupo.edadFinal,grupo.nombre
+    grupo.edadInicial,grupo.edadFinal,grupo.nombre, grupo.color
     ]
 );
 
@@ -57,10 +57,10 @@ return message;
 async function update(id, grupo){
 const result = await db.query(
     `UPDATE update 
-    SET edadInicio=?, edadFinal=?, nombre=?
+    SET edadInicio=?, edadFinal=?, nombre=?, color=?
     WHERE id_grupo=?`, 
     [
-    grupo.edadInicio,grupo.edadFinal,grupo.nombre, id
+    grupo.edadInicio,grupo.edadFinal,grupo.nombre, grupo.color, id
     ]
 );
 

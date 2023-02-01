@@ -5,9 +5,9 @@ const grupos = require('../services/grupos.service');
 //@route POST /grupos
 //@access Public
 const insertGroup = asyncHandler(async (req,res)=>{
-    const {edadInicial,edadFinal,nombre} = req.body
-    
-    if(!edadInicial || !edadFinal || !nombre){
+    const {edadInicial,edadFinal,nombre,color} = req.body
+
+    if(!edadInicial || !edadFinal || !nombre || !color){
         res.status(400)
         throw new Error('Please add all fields')
     }
@@ -26,7 +26,7 @@ const insertGroup = asyncHandler(async (req,res)=>{
     }
 
     //create grupo
-    const grupo = {nombre, edadInicial, edadFinal}
+    const grupo = {nombre, edadInicial, edadFinal, color}
     const insert = await grupos.create(grupo)
 
     if(insert.error){
