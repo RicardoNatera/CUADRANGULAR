@@ -5,7 +5,7 @@ import { FaTrashAlt } from 'react-icons/fa'
 function GroupItem({grupo}) {
     const dispatch = useDispatch()
   return (
-    <div className="grupo">
+    <div className="grupo" style={{color:grupo.color}}>
         <div>
             {
             // new Date(grupo.createdAt).toLocalString('en-US')

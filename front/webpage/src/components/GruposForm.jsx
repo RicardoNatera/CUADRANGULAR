@@ -3,12 +3,14 @@ import { useDispatch } from "react-redux"
 import { createGroup } from "../features/grupos/gruposSlice"
 
 function GruposForm() {
+  const defaultColor = "#0000ff"
   const [formData,setFormData] = useState({
     nombre: '',
     edadInicial: 0,
-    edadFinal: 0
+    edadFinal: 0,
+    color:defaultColor
   })
-  const {nombre,edadInicial,edadFinal} = formData;
+  const {nombre,edadInicial,edadFinal,color} = formData;
 
   const dispatch = useDispatch()
 
@@ -28,14 +30,16 @@ function GruposForm() {
       const groupData = {
           nombre,
           edadInicial,
-          edadFinal
+          edadFinal,
+          color
       }
 
     dispatch(createGroup(groupData))
     setFormData({
       nombre: '',
       edadInicial: 0,
-      edadFinal: 0
+      edadFinal: 0,
+      color: defaultColor
     })
   }
 
@@ -56,6 +60,11 @@ function GruposForm() {
         
           <label htmlFor="text">Edad Final</label>
           <input type="number" name="edadFinal" id="edadFinal" value={edadFinal}
+          onChange={onChange}/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="text">Color</label>
+          <input type="color" name="color" id="color" value={color}
           onChange={onChange}/>
         </div>
         <div className="form-group">
