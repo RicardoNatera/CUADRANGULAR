@@ -1,5 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import gruposService from './gruposService'
+import {toast} from 'react-toastify'
+import messages from '../../messages/messages.json'
+
 const initialState = {
     grupos: [],
     isError: false,
@@ -57,6 +60,7 @@ export const gruposSlice = createSlice({
             state.isLoading=false
             state.isSuccess=true
             state.grupos.push(action.payload)
+            toast.success(messages.fulfilled.createGroup)            
         })
         .addCase(createGroup.rejected, (state, action)=>{
             state.isLoading=false
@@ -83,6 +87,7 @@ export const gruposSlice = createSlice({
             state.isLoading=false
             state.isSuccess=true
             state.grupos = state.grupos.filter((grupo)=> grupo.id_grupo !== action.payload.id)
+            toast.success(messages.fulfilled.deleteGroup)
         })
         .addCase(deleteGroup.rejected, (state, action)=>{
             state.isLoading=false

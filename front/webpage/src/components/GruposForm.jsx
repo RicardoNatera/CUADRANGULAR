@@ -2,12 +2,13 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { createGroup } from "../features/grupos/gruposSlice"
 import {toast} from 'react-toastify'
+import messages from '../messages/messages.json'
 
 function GruposForm() {
   const defaultColor = "#0000ff"
   const [formData,setFormData] = useState({
     nombre: '',
-    edadInicial: 0,
+    edadInicial: '0',
     edadFinal: 0,
     color:defaultColor
   })
@@ -25,8 +26,12 @@ function GruposForm() {
   const onSubmit =(e)=>{
     e.preventDefault()
 
+    if(edadInicial === 0){
+      edadInicial='0'
+    }
+    
     if(edadFinal <= edadInicial){
-      toast.error("La edad limite del grupo debe ser mayor a la inicial")
+      toast.error(messages.error.edadesInvalidas)
     }else{
       const groupData = {
           nombre,
@@ -38,7 +43,7 @@ function GruposForm() {
     dispatch(createGroup(groupData))
     setFormData({
       nombre: '',
-      edadInicial: 0,
+      edadInicial: '0',
       edadFinal: 0,
       color: defaultColor
     })
