@@ -9,7 +9,7 @@ const insertGroup = asyncHandler(async (req,res)=>{
 
     if(!edadInicial || !edadFinal || !nombre || !color){
         res.status(400)
-        throw new Error('Please add all fields')
+        throw new Error('Por favor introduzca todos los campos')
     }
 
     //check if group exist

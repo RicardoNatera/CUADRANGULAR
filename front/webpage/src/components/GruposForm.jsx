@@ -29,8 +29,9 @@ function GruposForm() {
     if(edadInicial === 0){
       edadInicial='0'
     }
-    
-    if(edadFinal <= edadInicial){
+    if(!nombre){
+      toast.error(messages.error.camposIncompletos)
+    }else if(edadFinal <= edadInicial){
       toast.error(messages.error.edadesInvalidas)
     }else{
       const groupData = {

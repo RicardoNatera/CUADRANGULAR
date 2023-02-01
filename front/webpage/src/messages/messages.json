@@ -4,6 +4,7 @@
         "deleteGroup":"Grupo eliminado satisfactoriamente"
     },
     "error":{
-        "edadesInvalidas":"La edad limite del grupo debe ser mayor a la inicial"
+        "edadesInvalidas":"La edad limite del grupo debe ser mayor a la inicial",
+        "camposIncompletos":"Por favor introduzca todos los campos"
     }
 }
