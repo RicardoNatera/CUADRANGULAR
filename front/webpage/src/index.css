@@ -137,6 +137,13 @@ h3 {
   margin: 10px 0;
   padding: 20px 0 10px;
   position: relative;
+  width: 20rem;
+  height: auto;
+  word-wrap: break-word;
+}
+
+.grupo p {
+  font-size: 0.9rem;
 }
 
 .grupo .close {

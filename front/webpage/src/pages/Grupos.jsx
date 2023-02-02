@@ -16,9 +16,9 @@ function Grupos() {
     if(isError){
       console.log(message)
     }
-    
-    
+
     dispatch(getGroups())
+    
     
     return ()=>{
       dispatch(reset())
@@ -39,7 +39,7 @@ function Grupos() {
           {grupos.length > 0 ? (
           <div>
             <div className="grupos">
-              {grupos.map((grupo)=>(
+              {grupos.slice().sort((a,b)=> a.nombre.toUpperCase()>b.nombre.toUpperCase() ? 1:a.nombre.toUpperCase()<b.nombre.toUpperCase() ? -1:0).map((grupo)=>(
                 <GroupItem key={grupo.id_grupo} grupo={grupo}/>
               ))}
             </div>

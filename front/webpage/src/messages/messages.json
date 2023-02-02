@@ -1,7 +1,8 @@
 {
     "fulfilled":{
         "createGroup":"Grupo creado satisfactoriamente",
-        "deleteGroup":"Grupo eliminado satisfactoriamente"
+        "deleteGroup":"Grupo eliminado satisfactoriamente",
+        "deleteUser":"Usuario eliminado satisfactoriamente"
     },
     "error":{
         "edadesInvalidas":"La edad limite del grupo debe ser mayor a la inicial",

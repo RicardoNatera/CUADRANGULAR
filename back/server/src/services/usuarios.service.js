@@ -105,7 +105,7 @@ async function getUserInfoById(id){
       message = 'User deleted successfully';
     }
   
-    return message;
+    return id;
   }
 
   async function getAllUsers(){

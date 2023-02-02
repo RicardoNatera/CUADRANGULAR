@@ -17,6 +17,7 @@ const protect = asyncHandler(async (req,res,next)=>{
 
             //get user from token and db
             const results = await usuarios.getUserById(decoded.id)
+            console.log(results)
             if(results.length>0){
                 req.user = results[0]
             }else{
@@ -27,7 +28,7 @@ const protect = asyncHandler(async (req,res,next)=>{
             next()
 
         } catch (error) {
-            console.log(error)
+            console.log(error) 
             res.status(401)
             throw new Error('Not Authorized')
         }

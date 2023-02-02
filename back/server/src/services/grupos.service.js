@@ -25,6 +25,7 @@ async function getGroupById(id){
       'SELECT * FROM grupos WHERE id_grupo = ? LIMIT 1', 
       [id]
     );
+    
     const data = helper.emptyOrRows(rows);
     if(data.length>0)
         return data[0]

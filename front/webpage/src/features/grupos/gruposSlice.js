@@ -11,7 +11,7 @@ const initialState = {
     message: ''
 }
 
-//Createe new group
+//Create new group
 export const createGroup = createAsyncThunk('grupos/create',async(groupData,thunkAPI)=>{
 try {
     const token = thunkAPI.getState().auth.user.token
@@ -44,7 +44,8 @@ export const deleteGroup = createAsyncThunk('grupos/delete',async(groupId,thunkA
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
     }
-    })
+})
+
 export const gruposSlice = createSlice({
     name:'grupos',
     initialState,
