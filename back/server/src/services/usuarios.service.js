@@ -107,6 +107,15 @@ async function getUserInfoById(id){
   
     return message;
   }
+
+  async function getAllUsers(){
+    const rows = await db.query(
+      'SELECT id, usuario, isAdmin, email FROM usuarios'
+    );
+    const data = helper.emptyOrRows(rows);
+
+    return data;
+  }
   
   module.exports = {
     getUserByEmail,
@@ -114,6 +123,7 @@ async function getUserInfoById(id){
     getUserById,
     getIsAdminById,
     getUserInfoById,
+    getAllUsers,
     create,
     update,
     remove
