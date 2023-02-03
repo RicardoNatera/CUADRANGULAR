@@ -3,7 +3,7 @@ import { deleteGroup } from '../features/grupos/gruposSlice'
 import { FaTrashAlt } from 'react-icons/fa'
 
 function GroupItem({grupo}) {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
   return (
     <div className="grupo">
         <div>

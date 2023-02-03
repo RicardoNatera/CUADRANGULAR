@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import gruposService from './gruposService'
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 import messages from '../../messages/messages.json'
 
 const initialState = {
@@ -33,7 +33,7 @@ export const getGroups = createAsyncThunk('grupos/getAllGroups',async(args,thunk
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
     }
-    })
+})
 
 //Delete a group
 export const deleteGroup = createAsyncThunk('grupos/delete',async(groupId,thunkAPI)=>{
