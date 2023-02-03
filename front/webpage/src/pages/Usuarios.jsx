@@ -42,6 +42,7 @@ function Usuarios() {
             </div>
           </div>):(<h3>No hay ningun usuario</h3>)}
         </section>
+        <br /><br />
     </>
   )
 }

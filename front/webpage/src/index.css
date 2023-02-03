@@ -157,10 +157,14 @@ h3 {
 
 .form,
 .content {
-  width: 70%;
+  width: 75%;
   margin: 0 auto;
 }
-
+.content{
+  height: 40vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .form-group {
   margin-bottom: 10px;
 }
@@ -277,11 +281,21 @@ h3 {
     width: 90%;
   }
 
+  .content {
+    width: 95%;
+  }
+
   .heading h1 {
     font-size: 2rem;
   }
 
   .heading p {
     font-size: 1.5rem;
+  }
+
+  .grupos {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
   }
 }

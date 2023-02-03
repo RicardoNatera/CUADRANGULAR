@@ -45,6 +45,8 @@ function Grupos() {
             </div>
           </div>):(<h3>No hay ningun grupo</h3>)}
         </section>
+        <br /><br />
+
     </>
   )
 }
