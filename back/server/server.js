@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 const generalRouter = require('./src/routes/general.route')
 const userRouter = require('./src/routes/user.route')
 const gruposRouter = require('./src/routes/grupos.route')
+const maestrosRouter = require('./src/routes/maestros.route')
 
 app.use(bodyParser.json());
 app.use(
@@ -19,6 +20,8 @@ app.use('/general', generalRouter);
 app.use('/users', userRouter);
 
 app.use('/grupos', gruposRouter);
+
+app.use('/maestros', maestrosRouter);
 
 app.get('/', (req, res) => {
     res.json({'message': 'ok'});
