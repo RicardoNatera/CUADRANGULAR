@@ -90,8 +90,13 @@ export const maestrosSlice = createSlice({
         .addCase(deleteTeacher.fulfilled, (state, action)=>{
             state.isLoading=false
             state.isSuccess=true
-            state.maestros = state.maestros.filter((maestro)=> maestro.id_maestro !== action.payload.id)
-            toast.success(messages.fulfilled.deleteTeacher)
+
+            if(action.payload.id==-1){
+                toast.error(messages.error.teacherExistsInCard)
+            }else{
+                state.maestros = state.maestros.filter((maestro)=> maestro.id_maestro !== action.payload.id)
+                toast.success(messages.fulfilled.deleteTeacher)
+            }
         })
         .addCase(deleteTeacher.rejected, (state, action)=>{
             state.isLoading=false

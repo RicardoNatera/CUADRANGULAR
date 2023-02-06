@@ -76,12 +76,34 @@ if (result.affectedRows) {
 
 return message;
 }
+async function existsCards(id){
+    const rows = await db.query(
+    `SELECT * FROM tarjetas WHERE id_maestro=?`, 
+    [id]
+    );
+    const data = helper.emptyOrRows(rows);
+
+    return data;
+
+}
 
 async function remove(id){
-const result = await db.query(
+
+    const check = existsCards(id)
+    const flag = false;
+
+    if(check.length>0){
+        flag=true;
+    }
+
+    if(flag){
+        return -1;
+    }
+    
+    const result = await db.query(
     `DELETE FROM maestros WHERE id_maestro=?`, 
     [id]
-);
+    );
 
 let message = 'Error in deleting Group';
 
@@ -92,7 +114,6 @@ if (result.affectedRows) {
 
 return id;
 }
-
 
 module.exports = {
     getAllTeachers,

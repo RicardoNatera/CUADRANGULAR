@@ -25,7 +25,7 @@ function MaestrosForm() {
 
     const onSubmit =(e)=>{
         e.preventDefault()
-        console.log("hola")
+        
         if(!nombre || !cedula){
           toast.error(messages.error.camposIncompletos)
         }else{
