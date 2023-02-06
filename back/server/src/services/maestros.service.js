@@ -90,13 +90,8 @@ async function existsCards(id){
 async function remove(id){
 
     const check = existsCards(id)
-    const flag = false;
 
     if(check.length>0){
-        flag=true;
-    }
-
-    if(flag){
         return -1;
     }
     

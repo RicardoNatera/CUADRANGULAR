@@ -74,11 +74,28 @@ if (result.affectedRows) {
 return message;
 }
 
+async function existsCards(id){
+    const rows = await db.query(
+    `SELECT * FROM tarjetas WHERE id_grupo=?`, 
+    [id]
+    );
+    const data = helper.emptyOrRows(rows);
+
+    return data;
+
+}
+
 async function remove(id){
-const result = await db.query(
+    const check = existsCards(id)
+
+    if(check.length>0){
+        return -1;
+    }
+    
+    const result = await db.query(
     `DELETE FROM grupos WHERE id_grupo=?`, 
     [id]
-);
+    );
 
 let message = 'Error in deleting Group';
 

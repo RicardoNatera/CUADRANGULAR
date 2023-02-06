@@ -87,8 +87,12 @@ export const gruposSlice = createSlice({
         .addCase(deleteGroup.fulfilled, (state, action)=>{
             state.isLoading=false
             state.isSuccess=true
-            state.grupos = state.grupos.filter((grupo)=> grupo.id_grupo !== action.payload.id)
-            toast.success(messages.fulfilled.deleteGroup)
+            if(action.payload.id==-1){
+                toast.error(messages.error.groupExistsInCard)
+            }else{
+                state.grupos = state.grupos.filter((grupo)=> grupo.id_grupo !== action.payload.id)
+                toast.success(messages.fulfilled.deleteGroup)
+            }
         })
         .addCase(deleteGroup.rejected, (state, action)=>{
             state.isLoading=false
