@@ -1,21 +1,26 @@
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import Spinner from '../components/Spinner'
 
 import { getAllUsers, reset } from "../features/auth/authSlice"
 import UserItem from "../components/UserItem"
+import SearchBar from "../components/SearchBar"
 
 function Usuarios() {
   const dispatch = useDispatch()
+  const [search,setSearch] = useState('')
 
   const { users, isLoading, isError, message } = useSelector((state) => state.auth)
+
+  const [usersfilter,setUsersFilter] = useState(users)
 
   useEffect(()=>{
     
     if(isError){
       console.log(message)
+    }else{
+      dispatch(getAllUsers())
     }
-    dispatch(getAllUsers())
   
     return ()=>{
       dispatch(reset())
@@ -23,19 +28,30 @@ function Usuarios() {
 
   },[isError,message,dispatch])
 
-    if(isLoading){
-      return (
-        <Spinner/>
-      ) 
-    }
+  useEffect(() => {
+
+    setUsersFilter((prevState)=>users.filter((user)=>{return Object.values(user).join('').toLowerCase().includes(search.toLowerCase())}))
+    
+  }, [search])
+
+  useEffect(() => {
+    setUsersFilter(users)
+  }, [users])
+
+  if(isLoading){
+    return (
+      <Spinner/>
+    ) 
+  }
 
   return (
     <>
+      <SearchBar setSearch={setSearch}/>
         <section className="content">
-          {users.length > 0 ? (
+          {usersfilter.length > 0 ? (
           <div>
             <div className="grupos">
-              {users.slice().sort((a,b)=> a.usuario.toUpperCase()>b.usuario.toUpperCase() ? 1:a.usuario.toUpperCase()<b.usuario.toUpperCase() ? -1:0)
+              {usersfilter.slice().sort((a,b)=> a.usuario.toUpperCase()>b.usuario.toUpperCase() ? 1:a.usuario.toUpperCase()<b.usuario.toUpperCase() ? -1:0)
 .map((user)=>(
                 <UserItem key={user.id} usuario={user}/>
               ))}

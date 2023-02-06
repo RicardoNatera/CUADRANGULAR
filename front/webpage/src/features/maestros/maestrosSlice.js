@@ -68,6 +68,8 @@ export const maestrosSlice = createSlice({
             state.isLoading=false
             state.isError=true
             state.message=action.payload
+            if(state.message==="Teacher already exists") toast.error(messages.error.MaestroExistente)
+            
         })
         .addCase(getTeachers.pending, (state)=>{
             state.isLoading=true

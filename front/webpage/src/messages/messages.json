@@ -8,6 +8,7 @@
     },
     "error":{
         "edadesInvalidas":"La edad limite del grupo debe ser mayor a la inicial",
-        "camposIncompletos":"Por favor introduzca todos los campos"
+        "camposIncompletos":"Por favor introduzca todos los campos",
+        "MaestroExistente":"Existe ya un maestro registrado con dicha cedula"
     }
 }
