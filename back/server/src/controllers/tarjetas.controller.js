@@ -41,7 +41,7 @@ const insertCard = asyncHandler(async (req,res)=>{
         throw new Error('Invalid Teacher Data')
     }
     
-    res.status(201).json(await tarjetas.getCardByID(insert.id))
+    res.status(201).json(await tarjetas.getCardByCode(insert.code))
     
 })
 
@@ -73,10 +73,10 @@ const getCard = asyncHandler(async (req,res)=>{
 })
 
 // @desc    Eliminar tarjeta
-// @route   DELETE /tarjetas/:id
+// @route   DELETE /tarjetas/:code
 // @access  Private
 const deleteCard = asyncHandler(async (req, res) => {
-    const result = await tarjetas.getCardByID(req.params.id)
+    const result = await tarjetas.getCardByCode(req.params.code)
   
     if (result.length==0) {
       res.status(400)

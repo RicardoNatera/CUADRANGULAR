@@ -4,7 +4,7 @@ const helper = require('../utils/helper.util');
 
 async function getAllCards(){
     const rows = await db.query(
-        'SELECT * FROM maestros'
+        'SELECT * FROM tarjetas'
     );
     const data = helper.emptyOrRows(rows);
   
@@ -14,16 +14,18 @@ async function getAllCards(){
 
 async function getCardByCode(CI){
     const rows = await db.query(
-      'SELECT * FROM maestros WHERE cedula = ?', 
+      'SELECT * FROM tarjetas WHERE codigo = ?', 
       [CI]
     );
     const data = helper.emptyOrRows(rows);
     return data;
 }
 
+
+//Hay que arreglarla
 async function getCardByID(id){
     const rows = await db.query(
-      'SELECT * FROM maestros WHERE id_maestro = ? LIMIT 1', 
+      'SELECT * FROM tarjetas WHERE id_maestro = ? LIMIT 1', 
       [id]
     );
     
@@ -35,14 +37,14 @@ async function getCardByID(id){
     return data;
 }
   
-async function create(maestro){
+async function create(tarjeta){
 const result = await db.query(
-    `INSERT INTO maestros 
-    (nombre, apellido, telefono, cedula)
+    `INSERT INTO tarjetas 
+    (id_grupo, id_maestro, codigo)
     VALUES 
-    (?, ?, ?, ?)`, 
+    (?, ?, ?)`, 
     [
-    maestro.nombre,maestro.apellido,maestro.telefono, maestro.cedula
+    tarjeta.id_grupo,tarjeta.id_maestro,tarjeta.codigo
     ]
 );
 
@@ -58,28 +60,28 @@ if (result.affectedRows) {
 return message;
 }
 
-async function update(id, maestro){
+async function update(codigo, tarjeta){
 const result = await db.query(
     `UPDATE update 
-    SET nombre=?, apellido=?, telefono=?, cedula=?
-    WHERE id_maestro=?`, 
+    SET id_grupo=?, id_maestro=?, 
+    WHERE codigo=?`, 
     [
-    maestro.nombre,maestro.apellido,maestro.telefono,maestro.cedula, id
+    tarjeta.id_grupo,tarjeta.id_maestro, codigo
     ]
 );
 
-let message = 'Error in updating Teacher';
+let message = 'Error in updating Card';
 
 if (result.affectedRows) {
-    message = 'Teacher updated successfully';
+    message = 'Card updated successfully';
 }
 
 return message;
 }
-async function existsCards(id){
+async function existsCards(code){
     const rows = await db.query(
-    `SELECT * FROM tarjetas WHERE id_maestro=?`, 
-    [id]
+    `SELECT * FROM tarjetas WHERE codigo = ?`, 
+    [code]
     );
     const data = helper.emptyOrRows(rows);
 
@@ -87,27 +89,27 @@ async function existsCards(id){
 
 }
 
-async function remove(id){
+async function remove(code){
 
-    const check = existsCards(id)
+    const check = existsCards(code)
 
     if(check.length>0){
         return -1;
     }
     
     const result = await db.query(
-    `DELETE FROM maestros WHERE id_maestro=?`, 
-    [id]
+    `DELETE FROM tarjetas WHERE codigo=?`, 
+    [code]
     );
 
-let message = 'Error in deleting Group';
+let message = 'Error in deleting Card';
 
 if (result.affectedRows) {
     
-    message = 'Teacher deleted successfully';
+    message = 'Card deleted successfully';
 }
 
-return id;
+return code;
 }
 
 module.exports = {
