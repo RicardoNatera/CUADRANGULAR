@@ -7,6 +7,7 @@ const generalRouter = require('./src/routes/general.route')
 const userRouter = require('./src/routes/user.route')
 const gruposRouter = require('./src/routes/grupos.route')
 const maestrosRouter = require('./src/routes/maestros.route')
+const tarjetasRouter = require('./src/routes/tarjetas.route')
 
 app.use(bodyParser.json());
 app.use(
@@ -22,6 +23,8 @@ app.use('/users', userRouter);
 app.use('/grupos', gruposRouter);
 
 app.use('/maestros', maestrosRouter);
+
+app.use('/tarjetas', maestrosRouter);
 
 app.get('/', (req, res) => {
     res.json({'message': 'ok'});
