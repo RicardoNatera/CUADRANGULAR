@@ -24,7 +24,7 @@ app.use('/grupos', gruposRouter);
 
 app.use('/maestros', maestrosRouter);
 
-app.use('/tarjetas', maestrosRouter);
+app.use('/tarjetas', tarjetasRouter);
 
 app.get('/', (req, res) => {
     res.json({'message': 'ok'});

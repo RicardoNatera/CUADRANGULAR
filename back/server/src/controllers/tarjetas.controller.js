@@ -1,15 +1,15 @@
 const asyncHandler = require('express-async-handler')
 const tarjetas = require('../services/tarjetas.service');
 
-//@desc Obtener informacion de todos los maestros
+//@desc Obtener informacion de todos los tarjetas
 //@route GET /tarjetas/all
 //@access Private
 const getAll = asyncHandler(async (req,res)=>{
     res.json({data: await tarjetas.getAllCards()})
 })
 
-//@desc Insertar un nuevo maestro
-//@route POST /maestros
+//@desc Insertar un nuevo tarjeta
+//@route POST /tarjetas
 //@access Public
 const insertCard = asyncHandler(async (req,res)=>{
     const {id_grupo,id_maestro,codigo} = req.body
