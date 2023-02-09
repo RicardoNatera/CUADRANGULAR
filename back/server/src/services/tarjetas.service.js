@@ -12,10 +12,10 @@ async function getAllCards(){
 }
 
 
-async function getCardByCode(CI){
+async function getCardByCode(code){
     const rows = await db.query(
       'SELECT * FROM tarjetas WHERE codigo = ?', 
-      [CI]
+      [code]
     );
     const data = helper.emptyOrRows(rows);
     return data;
@@ -90,7 +90,6 @@ async function existsCards(code){
 }
 
 async function remove(code){
-
     const check = existsCards(code)
 
     if(check.length>0){

@@ -4,6 +4,9 @@ import Spinner from '../components/Spinner'
 import { MDBAccordion, MDBAccordionItem } from 'mdb-react-ui-kit';
 
 import { getCards, reset } from "../features/tarjetas/tarjetasSlice"
+import { getGroups, reset as resetGroups } from "../features/grupos/gruposSlice"
+import { getTeachers, reset as resetTeachers } from "../features/maestros/maestrosSlice"
+
 import CardItem from "../components/CardItem"
 import TarjetasForm from "../components/TarjetasForm"
 import SearchBar from "../components/SearchBar"
@@ -13,19 +16,25 @@ function Tarjetas() {
   const [search,setSearch] = useState('')
   
   const { tarjetas, isLoading, isError, message } = useSelector((state) => state.tarjetas)
+  const { grupos,  isLoadingGrupos, isErrorGrupos, messageGrupos } = useSelector((state) => state.grupos)
+  const { maestros,  isLoadingMaestros, isErrorMaestros, messageMaestros } = useSelector((state) => state.maestros)
 
   const [tarjetasfilter,setTarjetasFilter] = useState(tarjetas)
   
   useEffect(()=>{
     
-    if(isError){
+    if(isError || isErrorGrupos || isErrorMaestros){
       console.log(message)
     }else{
       dispatch(getCards())
+      dispatch(getGroups())
+      dispatch(getTeachers())
     }
 
     return ()=>{
       dispatch(reset())
+      dispatch(resetGroups())
+      dispatch(resetTeachers())
     }
 
   },[isError,message,dispatch])
@@ -40,16 +49,17 @@ function Tarjetas() {
     setTarjetasFilter(tarjetas)
   }, [tarjetas])
 
-  if(isLoading){
+  if(isLoading || isLoadingGrupos || isLoadingMaestros){
     return (
       <Spinner/>
     ) 
   }
+
   return (
     <>
       <MDBAccordion initialActive={0}>
         <MDBAccordionItem collapseId={1} headerTitle='Ingresar nueva tarjeta'>
-          <TarjetasForm/>
+          <TarjetasForm Grupos={grupos} Maestros={maestros}/>
         </MDBAccordionItem>
       </MDBAccordion> 
       <br />
@@ -58,9 +68,9 @@ function Tarjetas() {
         {tarjetasfilter.length > 0 ? (
         <div>
           <div className="grupos">
-            {tarjetasfilter.slice().sort((a,b)=> a.codigo.toUpperCase()>b.codigo.toUpperCase() ? 1:a.codigo.toUpperCase()<b.codigo.toUpperCase() ? -1:0)
+            {tarjetasfilter.slice().sort((a,b)=> a.codigo>b.codigo ? 1:a.codigo<b.codigo ? -1:0)
 .map((tarjeta)=>(
-              <CardItem key={tarjeta.codigo} card={tarjeta}/>
+              <CardItem key={tarjeta.codigo} card={tarjeta} grupo={grupos.find((grupo)=>grupo.id_grupo==tarjeta.id_grupo)} maestro={maestros.find((maestro)=>maestro.id_maestro==tarjeta.id_maestro)}/>
             ))}
           </div>
         </div>):(<h3>No hay ninguna tarjeta</h3>)}

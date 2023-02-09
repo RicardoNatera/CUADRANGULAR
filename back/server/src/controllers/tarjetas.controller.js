@@ -19,7 +19,7 @@ const insertCard = asyncHandler(async (req,res)=>{
         throw new Error('Por favor introduzca todos los campos')
     }
 
-    //check if group exist
+    //check if card exist
     var cardExist = false
     var results = await tarjetas.getCardByCode(codigo); 
 
@@ -28,20 +28,28 @@ const insertCard = asyncHandler(async (req,res)=>{
     }
 
     if(cardExist){
+        console.log("aaaa")
         res.status(400)
-        throw new Error('Teacher already exists')
+        throw new Error('Card already exists')
     }
 
     //create tarjeta
-    const tarjeta = {id_grupo, id_maestro, codigo}
-    const insert = await tarjetas.create(tarjeta)
-
+    try {
+        const tarjeta = {id_grupo, id_maestro, codigo}
+        console.log(tarjeta)
+        const insert = await tarjetas.create(tarjeta) 
+        
     if(insert.error){
         res.status(400)
-        throw new Error('Invalid Teacher Data')
+        throw new Error('Invalid Card Data')
+    }
+    console.log(await tarjetas.getCardByCode(codigo))
+    res.status(201).json(await tarjetas.getCardByCode(codigo)) 
+    } catch (error) {
+        console.log(error)
     }
     
-    res.status(201).json(await tarjetas.getCardByCode(insert.code))
+
     
 })
 
@@ -77,13 +85,13 @@ const getCard = asyncHandler(async (req,res)=>{
 // @access  Private
 const deleteCard = asyncHandler(async (req, res) => {
     const result = await tarjetas.getCardByCode(req.params.code)
-  
+
     if (result.length==0) {
       res.status(400)
       throw new Error('Card not found')
     }
   
-    const tarjeta=result
+    const tarjeta=result[0]
   
     const response = await tarjetas.remove(tarjeta.codigo)
   

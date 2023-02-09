@@ -61,7 +61,7 @@ export const tarjetasSlice = createSlice({
         .addCase(createCard.fulfilled, (state,action)=>{
             state.isLoading=false
             state.isSuccess=true
-            state.tarjetas.push(action.payload)
+            state.tarjetas.push(action.payload[0])
             toast.success(messages.fulfilled.createCard)            
         })
         .addCase(createCard.rejected, (state, action)=>{
@@ -94,7 +94,7 @@ export const tarjetasSlice = createSlice({
             if(action.payload.id==-1){
                 toast.error(messages.error.CardExistsInCard)
             }else{
-                state.tarjetas = state.tarjetas.filter((tarjeta)=> tarjeta.codigo !== action.payload.codigo)
+                state.tarjetas = state.tarjetas.filter((tarjeta)=> tarjeta.codigo !== action.payload.id)
                 toast.success(messages.fulfilled.deleteCard)
             }
         })
