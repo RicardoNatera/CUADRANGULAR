@@ -76,7 +76,7 @@ function GruposForm() {
         </div>
         <div className="form-group">
           <button className="btn btn-block" type="submit">
-            Anadir Grupo
+            Añadir Grupo
           </button>
         </div>
       </form>

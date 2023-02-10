@@ -5,8 +5,8 @@
         "deleteUser":"Usuario eliminado satisfactoriamente",
         "createTeacher":"Maestro creado satisfactoriamente",
         "deleteTeacher":"Maestro eliminado satisfactoriamente",
-        "createCard":"Tarjeta creado satisfactoriamente",
-        "deleteCard":"Tarjeta eliminado satisfactoriamente"
+        "createCard":"Tarjeta creada satisfactoriamente",
+        "deleteCard":"Tarjeta eliminada satisfactoriamente"
     },
     "error":{
         "edadesInvalidas":"La edad limite del grupo debe ser mayor a la inicial",
@@ -14,6 +14,6 @@
         "MaestroExistente":"Existe ya un maestro registrado con dicha cedula",
         "teacherExistsInCard":"No se puede eliminar, existen tarjetas del maestro",
         "groupExistsInCard":"No se puede eliminar, existen tarjetas del grupo",
-        "TarjetaExistente":"Existe ya un maestro registrado con dicha cedula"
+        "TarjetaExistente":"Existe ya una tarjeta creada con el mismo codigo, intente de nuevo"
     }
 }

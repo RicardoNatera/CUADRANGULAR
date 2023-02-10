@@ -12,7 +12,11 @@ const initialState = {
     isError: false,
     isSuccess: false,
     isLoading: false,
-    message: ''
+    message: '',
+    isErrorUser: false,
+    isSuccessUser: false,
+    isLoadingUser: false,
+    messageUser: ''
 }
 
 // Register user
@@ -62,6 +66,17 @@ export const deleteUser = createAsyncThunk('users/delete',async(userId,thunkAPI)
     }
 })
 
+//Get an user
+export const getUser = createAsyncThunk('users/get',async(userId,thunkAPI)=>{
+    try {
+        const token = thunkAPI.getState().auth.user.token
+        return await authService.getUser(userId,token)
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
@@ -71,7 +86,11 @@ export const authSlice = createSlice({
             state.isError = false
             state.isSuccess = false
             state.message = '',
-            state.users = []
+            state.users = [],
+            state.isErrorUser= false,
+            state.isSuccessUser= false,
+            state.isLoadingUser= false,
+            state.messageUser= ''
         }
     },
     extraReducers: (builder) => {
@@ -133,6 +152,20 @@ export const authSlice = createSlice({
             state.isLoading=false
             state.isError=true
             state.message=action.payload
+        })
+        .addCase(getUser.pending, (state)=>{
+            state.isLoadingUser=true
+        })
+        .addCase(getUser.fulfilled, (state, action)=>{
+            state.isLoadingUser=false
+            state.isSuccessUser=true
+            state.user.usuario = action.payload.usuario
+            state.user.email = action.payload.email
+        })
+        .addCase(getUser.rejected, (state, action)=>{
+            state.isLoadingUser=false
+            state.isErrorUser=true
+            state.messageUser=action.payload
         })
         
     }

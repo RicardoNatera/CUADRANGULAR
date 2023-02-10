@@ -42,6 +42,7 @@ const getAllUsers = async(token) =>{
  
 }
 
+//Delete an user
 const deleteUser = async(id,token) =>{
     const config ={
         headers:{
@@ -53,12 +54,25 @@ const deleteUser = async(id,token) =>{
  
 }
 
+//Get an user
+const getUser = async(id,token) =>{
+    const config ={
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await axios.get(API_URL+id, config)
+    return response.data
+ 
+}
+
 const authService = {
     register,
     logout,
     login,
     getAllUsers,
-    deleteUser
+    deleteUser,
+    getUser
 }
 
 export default authService
