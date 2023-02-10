@@ -113,6 +113,22 @@ const deleteUser = asyncHandler(async (req, res) => {
     res.status(200).json({ id:response })
 })
 
+// @desc    Obtener usuario
+// @route   GET /users/:id
+// @access  Private
+const getUser = asyncHandler(async (req, res) => {
+    const result = await usuarios.getUserInfoById(req.params.id)
+
+    if (result.length==0) {
+      res.status(400)
+      throw new Error('User not found')
+    }
+  
+    const usuario=result[0]
+  
+    res.status(200).json(usuario)
+})
+
 //Generate JWT
 const generateToken = (id) =>{
     return jwt.sign({id},process.env.JWT_SECRET, {
@@ -124,5 +140,6 @@ module.exports = {
     loginUser,
     getMe,
     getAll,
-    deleteUser
+    deleteUser,
+    getUser
 }

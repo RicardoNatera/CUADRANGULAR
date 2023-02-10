@@ -89,14 +89,14 @@ async function existsCards(id){
 
 async function remove(id){
 
-    const check = existsCards(id)
+    const check = await existsCards(id)
 
     if(check.length>0){
         return -1;
     }
     
     const result = await db.query(
-    `DELETE FROM maestros WHERE id_maestro=?`, 
+        `DELETE FROM maestros WHERE id_maestro=?`, 
     [id]
     );
 

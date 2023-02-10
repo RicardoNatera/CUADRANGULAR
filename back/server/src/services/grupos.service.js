@@ -76,7 +76,7 @@ return message;
 
 async function existsCards(id){
     const rows = await db.query(
-    `SELECT * FROM tarjetas WHERE id_grupo=?`, 
+        `SELECT * FROM tarjetas WHERE id_grupo=?`, 
     [id]
     );
     const data = helper.emptyOrRows(rows);
@@ -86,7 +86,8 @@ async function existsCards(id){
 }
 
 async function remove(id){
-    const check = existsCards(id)
+    
+    const check = await existsCards(id)
 
     if(check.length>0){
         return -1;
