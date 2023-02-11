@@ -1,8 +1,12 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { createTeacher } from "../features/maestros/maestrosSlice"
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 import messages from '../messages/messages.json'
+import {
+    MDBInput,
+    MDBBtn
+} from 'mdb-react-ui-kit';
 
 
 function MaestrosForm() {
@@ -49,31 +53,18 @@ function MaestrosForm() {
     return (
         <section className="form">
             <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor="text">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" value={nombre}
-                onChange={onChange}/>
+
+                <MDBInput size='lg' className='mb-3' type='text' name="nombre" id="nombre" value={nombre} label='Nombre' onChange={onChange}/>
+                <MDBInput size='lg' className='mb-3' type='text' name="apellido" id="apellido" value={apellido} label='Apellido' onChange={onChange}/>
+                <MDBInput size='lg' className='mb-3' type='text' name="cedula" id="cedula" value={cedula} label='Cédula' onChange={onChange}/>
+                <MDBInput size='lg' className='mb-3' type='tel' name="telefono" id="telefono" value={telefono} label='Teléfono' onChange={onChange}/>
+
+                <div className="d-grid gap-1 d-md-flex justify-content-md-end">
+                    <MDBBtn type='submit' className='mb-3' rounded >
+                        Añadir Maestro
+                    </MDBBtn>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="text">Apellido</label>
-                    <input type="text" name="apellido" id="apellido" value={apellido}
-                onChange={onChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="text">Cedula</label>
-                    <input type="text" name="cedula" id="cedula" value={cedula}
-                onChange={onChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="text">Telefono</label>
-                    <input type="text" name="telefono" id="telefono" value={telefono}
-                onChange={onChange}/>
-                </div>
-                <div className="form-group">
-                <button className="btn btn-block" type="submit">
-                    Añadir Maestro
-                </button>
-                </div>
+
             </form>
         </section>
     )

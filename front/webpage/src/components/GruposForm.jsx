@@ -1,11 +1,17 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { createGroup } from "../features/grupos/gruposSlice"
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 import messages from '../messages/messages.json'
+import {
+  MDBInput,
+  MDBCol,
+  MDBRow,
+  MDBBtn
+} from 'mdb-react-ui-kit';
 
 function GruposForm() {
-  const defaultColor = "#0000ff"
+  const defaultColor = "#1DF519"
   const [formData,setFormData] = useState({
     nombre: '',
     edadInicial: '0',
@@ -53,32 +59,30 @@ function GruposForm() {
   }
 
   return (
-    <section className="form">
+    <section className="form"> 
       <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <label htmlFor="text">Grupo</label>
-          <input type="text" name="nombre" id="nombre" value={nombre}
-          onChange={onChange}/>
-        </div>
-        <div className="form-number">
-          <label htmlFor="text">Edad de Inicio</label>
-          <input type="number" name="edadInicial" id="edadInicial" value={edadInicial}
-          onChange={onChange}/>
-        
-          <label htmlFor="text">Edad Final</label>
-          <input type="number" name="edadFinal" id="edadFinal" value={edadFinal}
-          onChange={onChange}/>
-        </div>
-        <div className="form-group">
-          <label htmlFor="text">Color</label>
-          <input type="color" name="color" id="color" value={color}
-          onChange={onChange}/>
-        </div>
-        <div className="form-group">
-          <button className="btn btn-block" type="submit">
+
+        <MDBInput size='lg' className='mb-3' type='text' name="nombre" id="nombre" value={nombre} label='Nombre del grupo' onChange={onChange}/>
+
+        <MDBRow >
+          <MDBCol>
+            <MDBInput size='lg' className='mb-3' type='number' name="edadInicial" id="edadInicial" value={edadInicial} label='Edad de inicio' min="0"
+            onChange={onChange}/>
+          </MDBCol>
+          <MDBCol>
+            <MDBInput size='lg' className='mb-3' type='number' name="edadFinal" id="edadFinal" value={edadFinal} label='Edad final' min={edadInicial}
+            onChange={onChange}/>
+          </MDBCol>
+        </MDBRow>
+
+        <MDBInput size='lg' className='mb-3' type='color' name="color" id="color" value={color} label='Color' onChange={onChange}/>
+
+        <div className="d-grid gap-1 d-md-flex justify-content-md-end">
+          <MDBBtn type='submit' className='mb-3' rounded >
             Añadir Grupo
-          </button>
+          </MDBBtn>
         </div>
+            
       </form>
     </section>
   )

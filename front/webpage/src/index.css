@@ -155,12 +155,13 @@ h3 {
   background: none;
 }
 
-.form,
-.content {
-  width: 75%;
+.form {
+  width: 50%;
   margin: 0 auto;
 }
 .content{
+  width: 75%;
+  margin: 0 auto;
   height: 40vh;
   overflow-x: hidden;
   overflow-y: auto;

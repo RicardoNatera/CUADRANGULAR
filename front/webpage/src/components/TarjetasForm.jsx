@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { createCard } from "../features/tarjetas/tarjetasSlice"
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 import messages from '../messages/messages.json'
-
+import {
+    MDBBtn
+} from 'mdb-react-ui-kit';
 
 function TarjetasForm({Grupos,Maestros}) {
     const [formData,setFormData] = useState({
@@ -73,10 +75,10 @@ function TarjetasForm({Grupos,Maestros}) {
                         {Maestros.map((maestro)=><option key={maestro.id_maestro} value={maestro.id_maestro}>{maestro.nombre} {maestro.apellido} V-{maestro.cedula}</option>)}
                     </select>
                 </div>
-                <div className="form-group">
-                <button className="btn btn-block" type="submit">
-                    Añadir Tarjeta
-                </button>
+                <div className="d-grid gap-1 d-md-flex justify-content-md-end">
+                    <MDBBtn type='submit' className='mb-3' rounded >
+                        Añadir Tarjeta
+                    </MDBBtn>
                 </div>
             </form>
         </section>
