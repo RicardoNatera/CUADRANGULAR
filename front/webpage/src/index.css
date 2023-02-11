@@ -154,7 +154,10 @@ h3 {
   border: none;
   background: none;
 }
-
+.img{
+  max-width: 8rem;
+  min-width: 2rem;
+}
 .form {
   width: 50%;
   margin: 0 auto;
