@@ -4,7 +4,7 @@ const { getAll, insertTeacher, getTeacher, deleteTeacher } = require('../control
 const { protect, protectAdmin } = require('../middlewares/auth.middleware')
 
 router.route('/').get(protect,getAll).post(protect,insertTeacher)
-
+router.route('/home').get(getAll)
 router.get('/teacher/:cedula',protect,getTeacher)
 router.delete('/:id',protect,deleteTeacher)
 

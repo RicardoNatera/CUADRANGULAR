@@ -24,6 +24,18 @@ export const getTeachers = createAsyncThunk('maestros/getAllTeachers',async(args
     }
 })
 
+//Get all teachers
+export const getTeachersNoAuth = createAsyncThunk('maestros/getAllTeachersHome',async(args,thunkAPI)=>{
+    try {
+        
+        return await maestrosService.getAllTeachersHome()
+        
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
 //Create new teacher
 export const createTeacher = createAsyncThunk('maestros/create',async(teacherData,thunkAPI)=>{
     try {
@@ -70,6 +82,19 @@ export const maestrosSlice = createSlice({
             state.message=action.payload
             if(state.message==="Teacher already exists") toast.error(messages.error.MaestroExistente)
             
+        })
+        .addCase(getTeachersNoAuth.pending, (state)=>{
+            state.isLoading=true
+        })
+        .addCase(getTeachersNoAuth.fulfilled, (state,action)=>{
+            state.isLoading=false
+            state.isSuccess=true
+            state.maestros = action.payload
+        })
+        .addCase(getTeachersNoAuth.rejected, (state, action)=>{
+            state.isLoading=false
+            state.isError=true
+            state.message=action.payload
         })
         .addCase(getTeachers.pending, (state)=>{
             state.isLoading=true

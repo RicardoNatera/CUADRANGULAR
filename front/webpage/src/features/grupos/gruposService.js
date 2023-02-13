@@ -24,7 +24,13 @@ const getAllGroup = async(token) =>{
     return response.data.data
  
 }
-
+const getAllGroupHome = async() =>{
+    
+   
+    const response = await axios.get(API_URL+"home")
+    return response.data.data
+ 
+}
 const deleteGroup = async(id,token) =>{
     const config ={
         headers:{
@@ -40,7 +46,8 @@ const deleteGroup = async(id,token) =>{
 const gruposService = {
     createGroup,
     getAllGroup,
-    deleteGroup
+    deleteGroup,
+    getAllGroupHome
 }
 
 export default gruposService

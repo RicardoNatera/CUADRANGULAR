@@ -25,6 +25,8 @@ function Tarjetas() {
     
     if(isError || isErrorGrupos || isErrorMaestros){
       console.log(message)
+      console.log(messageGrupos)
+      console.log(messageMaestros)
     }else{
       dispatch(getCards())
       dispatch(getGroups())

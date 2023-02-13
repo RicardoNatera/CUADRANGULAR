@@ -14,6 +14,13 @@ const getAllTeachers = async(token) =>{
  
 }
 
+const getAllTeachersHome = async() =>{
+   
+    const response = await axios.get(API_URL+"home")
+    return response.data.data
+ 
+}
+
 const createTeacher = async(teacherData,token) =>{
     const config ={
         headers:{
@@ -41,7 +48,8 @@ const deleteTeacher = async(id,token) =>{
 const maestrosService = {
     getAllTeachers,
     deleteTeacher,
-    createTeacher
+    createTeacher,
+    getAllTeachersHome
 }
 
 export default maestrosService

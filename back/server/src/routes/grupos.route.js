@@ -4,7 +4,7 @@ const { getAll, getGroup, deleteGroup, insertGroup } = require('../controllers/g
 const { protect, protectAdmin } = require('../middlewares/auth.middleware')
 
 router.route('/').get(protect,getAll).post(protect,insertGroup)
-
+router.route('/home').get(getAll)
 router.get('/group/:nombre',protect,getGroup)
 router.delete('/:id',protect,deleteGroup)
 

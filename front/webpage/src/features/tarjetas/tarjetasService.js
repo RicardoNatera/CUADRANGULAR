@@ -15,6 +15,14 @@ const getAllCards = async(token) =>{
  
 }
 
+const getAllCardsHome = async() =>{
+    
+    const response = await axios.get(API_URL+"home")
+    return response.data.data
+ 
+}
+
+
 const createCard = async(cardData,token) =>{
     const config ={
         headers:{
@@ -42,7 +50,8 @@ const deleteCard = async(code,token) =>{
 const maestrosService = {
     getAllCards,
     deleteCard,
-    createCard
+    createCard,
+    getAllCardsHome
 }
 
 export default maestrosService

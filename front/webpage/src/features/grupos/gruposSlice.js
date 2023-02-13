@@ -35,6 +35,18 @@ export const getGroups = createAsyncThunk('grupos/getAllGroups',async(args,thunk
     }
 })
 
+//Get all groups
+export const getGroupsNoAuth = createAsyncThunk('grupos/getAllGroupsHome',async(args,thunkAPI)=>{
+    try {
+        
+        return await gruposService.getAllGroupHome()
+        
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
 //Delete a group
 export const deleteGroup = createAsyncThunk('grupos/delete',async(groupId,thunkAPI)=>{
     try {
@@ -77,6 +89,19 @@ export const gruposSlice = createSlice({
             state.grupos = action.payload
         })
         .addCase(getGroups.rejected, (state, action)=>{
+            state.isLoading=false
+            state.isError=true
+            state.message=action.payload
+        })
+        .addCase(getGroupsNoAuth.pending, (state)=>{
+            state.isLoading=true
+        })
+        .addCase(getGroupsNoAuth.fulfilled, (state,action)=>{
+            state.isLoading=false
+            state.isSuccess=true
+            state.grupos = action.payload
+        })
+        .addCase(getGroupsNoAuth.rejected, (state, action)=>{
             state.isLoading=false
             state.isError=true
             state.message=action.payload
