@@ -126,6 +126,25 @@ h3 {
   height: auto;
 }
 
+
+
+.tarjeta{
+  width: 300px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+
+.hidden{
+  display:none;
+}
+.visible{
+  display: flex;
+}
+
 .grupos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -150,6 +169,14 @@ h3 {
   position: absolute;
   top: 10px;
   right: 15px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.grupo .download {
+  position: absolute;
+  top: 10px;
+  left: 15px;
   cursor: pointer;
   border: none;
   background: none;
