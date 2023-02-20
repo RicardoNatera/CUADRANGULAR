@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import Spinner from '../components/Spinner'
 
-import { MDBAccordion, MDBAccordionItem } from 'mdb-react-ui-kit';
+import { MDBAccordion, MDBAccordionItem, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import SearchBar from "../components/SearchBar"
 import GroupItem from '../components/GroupItem'
 import GruposForm from "../components/GruposForm"
@@ -62,13 +62,22 @@ function Grupos() {
       <SearchBar setSearch={setSearch}/>
       <section className="content">
         {gruposfilter.length > 0 ? (
-        <div>
-          <div className="grupos">
+        <MDBTable align='middle' responsive>
+          <MDBTableHead>
+            <tr>
+              <th scope='col'>Nombre</th>
+              <th scope='col'>Edad Inicio</th>
+              <th scope='col'>Edad Final</th>
+              <th scope='col'>Borrar</th>
+            </tr>
+          </MDBTableHead>
+          <MDBTableBody>
             {gruposfilter.slice().sort((a,b)=> a.nombre.toUpperCase()>b.nombre.toUpperCase() ? 1:a.nombre.toUpperCase()<b.nombre.toUpperCase() ? -1:0).map((grupo)=>(
               <GroupItem key={grupo.id_grupo} grupo={grupo}/>
             ))}
-          </div>
-        </div>):(<h3>No hay ningun grupo</h3>)}
+          </MDBTableBody>
+        </MDBTable>
+        ):(<h3>No hay ningun grupo</h3>)}
       </section>
       <br /><br />
 

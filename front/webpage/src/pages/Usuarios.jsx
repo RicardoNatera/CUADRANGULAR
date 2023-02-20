@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import Spinner from '../components/Spinner'
 
+import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import { getAllUsers, reset } from "../features/auth/authSlice"
 import UserItem from "../components/UserItem"
 import SearchBar from "../components/SearchBar"
@@ -49,14 +50,21 @@ function Usuarios() {
       <SearchBar setSearch={setSearch}/>
         <section className="content">
           {usersfilter.length > 0 ? (
-          <div>
-            <div className="grupos">
+          <MDBTable align='middle' responsive>
+          <MDBTableHead>
+            <tr>
+              <th scope='col'>Usuario</th>
+              <th scope='col'>Correo</th>
+              <th scope='col'>Borrar</th>
+            </tr>
+          </MDBTableHead>
+            <MDBTableBody>
               {usersfilter.slice().sort((a,b)=> a.usuario.toUpperCase()>b.usuario.toUpperCase() ? 1:a.usuario.toUpperCase()<b.usuario.toUpperCase() ? -1:0)
 .map((user)=>(
                 <UserItem key={user.id} usuario={user}/>
               ))}
-            </div>
-          </div>):(<h3>No hay ningun usuario</h3>)}
+            </MDBTableBody>
+        </MDBTable>):(<h3>No hay ningun usuario</h3>)}
         </section>
         <br /><br />
     </>

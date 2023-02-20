@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import Spinner from '../components/Spinner'
-import { MDBAccordion, MDBAccordionItem } from 'mdb-react-ui-kit';
+import { MDBAccordion, MDBAccordionItem, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 
 import { getCards, reset } from "../features/tarjetas/tarjetasSlice"
 import { getGroups, reset as resetGroups } from "../features/grupos/gruposSlice"
@@ -68,14 +68,23 @@ function Tarjetas() {
       <SearchBar setSearch={setSearch}/>
       <section className="content">
         {tarjetasfilter.length > 0 ? (
-        <div>
-          <div className="grupos">
+        <MDBTable align='middle' responsive>
+        <MDBTableHead>
+          <tr>
+            <th scope='col'>Código</th>
+            <th scope='col'>Grupo</th>
+            <th scope='col'>Maestro</th>
+            <th scope='col'>Acciones</th>
+          </tr>
+        </MDBTableHead>
+        <MDBTableBody>
             {tarjetasfilter.slice().sort((a,b)=> a.codigo>b.codigo ? 1:a.codigo<b.codigo ? -1:0)
 .map((tarjeta)=>(
               <CardItem key={tarjeta.codigo} card={tarjeta} grupo={grupos.find((grupo)=>grupo.id_grupo==tarjeta.id_grupo)} maestro={maestros.find((maestro)=>maestro.id_maestro==tarjeta.id_maestro)}/>
             ))}
-          </div>
-        </div>):(<h3>No hay ninguna tarjeta</h3>)}
+          </MDBTableBody>
+        </MDBTable>
+          ):(<h3>No hay ninguna tarjeta</h3>)}
       </section>
     </>
   )

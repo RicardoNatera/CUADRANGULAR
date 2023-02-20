@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useDispatch } from "react-redux"
 import { deleteCard } from '../features/tarjetas/tarjetasSlice'
 import { FaTrashAlt, FaDownload } from 'react-icons/fa'
+import { MDBBtn } from 'mdb-react-ui-kit';
 import * as htmlToImage from 'html-to-image';
 import Card from './Card'
 
@@ -21,18 +22,28 @@ function CardItem({ card, grupo, maestro }) {
     domEl.current.className="tarjeta hidden" //Elemento se esconde
   }
   return (
-    <div className="grupo">
-      <Card codigo={card.codigo} grupo={grupo ? grupo.nombre:""} maestro={maestro ? maestro.nombre+' '+maestro.apellido:""} color={grupo ? grupo.color:""} domEl={domEl}/>
-        <h3>{card.codigo}</h3>
-        {grupo ? <h4>Grupo: {grupo.nombre}</h4>:<></>}
-        {maestro ? <h4>Maestro: {maestro.nombre} {maestro.apellido}</h4>:<></>}
-        <button onClick={()=>dispatch(deleteCard(card.codigo))} className="close">
-            <FaTrashAlt color="red"/>
-        </button>
-        <button onClick={()=>downloadCard()} className="download">
-            <FaDownload color="green"/>
-        </button>
-    </div>
+        <tr>
+          <td>
+            <p className='fw-bold mb-1'>{card.codigo}</p>            
+          </td>
+          <td>
+            {grupo ? <p className='fw-normal mb-1'>{grupo.nombre}</p>:<p></p>}
+          </td>
+          <td>
+            {maestro ? <p className='fw-normal mb-1'>{maestro.nombre} {maestro.apellido}</p>:<p></p>}
+          </td>
+          <td>
+            <div className='d-flex align-items-center gap-2 justify-content-center'>
+              <MDBBtn onClick={()=>dispatch(deleteCard(card.codigo))} rounded size='sm' color='danger'>
+                <FaTrashAlt/>
+              </MDBBtn>
+              <MDBBtn onClick={()=>downloadCard()} rounded size='sm' color='success'>
+                <FaDownload/>
+            </MDBBtn>
+            </div>
+          </td>
+          <Card codigo={card.codigo} grupo={grupo ? grupo.nombre:""} maestro={maestro ? maestro.nombre+' '+maestro.apellido:""} color={grupo ? grupo.color:""} domEl={domEl}/>
+        </tr>
   )
 }
 

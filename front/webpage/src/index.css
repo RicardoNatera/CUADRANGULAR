@@ -190,7 +190,7 @@ h3 {
   margin: 0 auto;
 }
 .content{
-  width: 75%;
+  width: 95%;
   margin: 0 auto;
   height: 40vh;
   overflow-x: hidden;
@@ -239,27 +239,6 @@ h3 {
   text-align: left;
   display: block;
   margin: 0 0 5px 3px;
-}
-
-/*.btn {
-  padding: 10px 20px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background: #000;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  text-align: center;
-  appearance: button;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-*/
-
-.btn svg {
-  margin-right: 8px;
 }
 
 .btn-reverse {

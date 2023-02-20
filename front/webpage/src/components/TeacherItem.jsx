@@ -1,22 +1,27 @@
 import { useDispatch } from "react-redux"
 import { deleteTeacher } from '../features/maestros/maestrosSlice'
 import { FaTrashAlt } from 'react-icons/fa'
+import { MDBBtn } from 'mdb-react-ui-kit';
 
 function TeacherItem({maestro}) {
     const dispatch = useDispatch()
     return (
-      <div className="grupo">
-          <div>
-              {
-              // new Date(grupo.createdAt).toLocalString('en-US')
-              }
-          </div>
-          <h2>{maestro.nombre} {maestro.apellido}</h2>
-          <h3>C.I: {maestro.cedula}. Tlfno:{maestro.telefono}</h3>
-          <button onClick={()=>dispatch(deleteTeacher(maestro.id_maestro))} className="close">
-              <FaTrashAlt color="red"/>
-          </button>
-      </div>
+        <tr>
+          <td>
+            <p className='fw-bold mb-1'>{maestro.nombre} {maestro.apellido}</p>
+          </td>
+          <td>
+            <p className='fw-normal mb-1'>V-{maestro.cedula}</p>
+          </td>
+          <td>
+            <p className='fw-normal mb-1'>{maestro.telefono}</p>
+          </td>
+          <td>
+            <MDBBtn onClick={()=>dispatch(deleteTeacher(maestro.id_maestro))} rounded size='sm' color='danger'>
+              <FaTrashAlt/>
+            </MDBBtn>
+          </td>
+        </tr>
     )
 }
 
