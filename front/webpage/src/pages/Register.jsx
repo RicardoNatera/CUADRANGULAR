@@ -10,6 +10,9 @@ import logo from "../img/logo.png"
 import {
     MDBBtn,
     MDBContainer,
+    MDBCard,
+    MDBCardBody,
+    MDBCardImage,
     MDBRow,
     MDBCol,
     MDBInput
@@ -73,26 +76,27 @@ function Register() {
     }
 
     return (
-        <MDBContainer className="my-2 text-center">
+        <MDBContainer>
             <form onSubmit={onSubmit}>
-                <MDBRow className="d-flex justify-content-center">
-                    <MDBCol size='6'>
-                        <div className="d-flex flex-column">
-                            <div className="text-center mb-3">
-                                <img src={logo} className="img" alt="logo" />
-                            </div>
-                            <h4>Regístrate <br />
-                            Por favor crea una cuenta</h4>
+                <MDBRow className='g-0 justify-content-center'>
+                    <MDBCol md='6'>
+                        <div>
+                        
+                            <img src={logo} className="img" alt="logo"/>
+                            
+                            
+                        </div>
+                        <h5 className="fw-normal mt-4" style={{letterSpacing: '1px'}}>Regístrate</h5>
+                        <h5 className="fw-normal mb-4" style={{letterSpacing: '1px'}}>Por favor crea una cuenta</h5>
+
                             <MDBInput wrapperClass='mb-3' label='Usuario' type="text" className="form-control" id='usuario' name='usuario' value={usuario} placeholder="Ingrese su usuario" onChange={onChange}/>
                             <MDBInput wrapperClass='mb-3' label='Email' type="email" className="form-control" id='email' name='email' value={email} placeholder="Ingrese su email" onChange={onChange}/>
                             <MDBInput wrapperClass='mb-3' label='Contraseña' type="password" className="form-control" id='password' name='password' value={password} placeholder="Ingrese su contraseña" onChange={onChange}/>
                             <MDBInput wrapperClass='mb-3' label='Confirmación' type="password" className="form-control" id='password2' name='password2' value={password2} placeholder="Confirme su contraseña" onChange={onChange}/>
-                        </div>
-                        <div className="text-center pt-1 mb-3 pb-1">
-                            <MDBBtn type="submit" className="mb-1 w-100" style = {{backgroundColor:"#005BA4"}}>
+                            <MDBBtn type="submit" size='lg' className="mb-3 px-5" style = {{backgroundColor:"#005BA4"}}>
                                 Registrarse
                             </MDBBtn>
-                        </div>
+                            <p className="pb-lg-2">Ya tiene una cuenta? <MDBBtn size="sm" color='link' rippleColor='dark' onClick={(e)=>{navigate('/login')}}>Ingrese aqui</MDBBtn></p>
                     </MDBCol>
                 </MDBRow> 
             </form>
