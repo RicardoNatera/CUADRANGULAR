@@ -10,9 +10,6 @@ import logo from "../img/logo.png"
 import {
     MDBBtn,
     MDBContainer,
-    MDBCard,
-    MDBCardBody,
-    MDBCardImage,
     MDBRow,
     MDBCol,
     MDBInput
