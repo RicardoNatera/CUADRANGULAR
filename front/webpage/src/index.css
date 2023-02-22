@@ -1,25 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-
-.gradient-custom-2 {
-  /* fallback for old browsers */
-  background: #005BA4;
-
-
-}
-
-@media (min-width: 768px) {
-  .gradient-form {
-    height: 100vh !important;
-  }
-}
-@media (min-width: 769px) {
-  .gradient-custom-2 {
-    border-top-right-radius: .3rem;
-    border-bottom-right-radius: .3rem;
-  }
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -53,14 +33,6 @@ h2,
 h3 {
   font-weight: 600;
   margin-bottom: 10px;
-}
-
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
 }
 
 .header {
@@ -165,22 +137,6 @@ h3 {
   font-size: 0.9rem;
 }
 
-.grupo .close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-.grupo .download {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
 .img{
   max-width: 8rem;
   min-width: 2rem;
@@ -197,11 +153,6 @@ h3 {
   overflow-y: auto;
 }
 .form-group {
-  margin-bottom: 10px;
-}
-
-.form-number {
-  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -239,16 +190,6 @@ h3 {
   text-align: left;
   display: block;
   margin: 0 0 5px 3px;
-}
-
-.btn-reverse {
-  background: #fff;
-  color: #000;
-}
-
-.btn-block {
-  width: 100%;
-  margin-bottom: 20px;
 }
 
 .btn:hover {
@@ -303,9 +244,4 @@ h3 {
     font-size: 1.5rem;
   }
 
-  .grupos {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
-  }
 }

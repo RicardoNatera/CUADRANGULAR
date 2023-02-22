@@ -64,7 +64,8 @@ function Usuarios() {
                 <UserItem key={user.id} usuario={user}/>
               ))}
             </MDBTableBody>
-        </MDBTable>):(<h3>No hay ningun usuario</h3>)}
+          </MDBTable>
+        ):(<h3>No hay ningun usuario</h3>)}
         </section>
         <br /><br />
     </>

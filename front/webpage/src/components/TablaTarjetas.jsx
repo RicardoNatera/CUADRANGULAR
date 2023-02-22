@@ -66,7 +66,7 @@ function TablaTarjetas() {
         <MDBTable>
         <MDBTableHead>
             <tr>
-            <th scope='col'>Cod. Tarjeta</th>
+            <th scope='col'>&nbsp;&nbsp;&nbsp;&nbsp;Código&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th scope='col'>Grupo</th>
             <th scope='col'>Maestro</th>
             </tr>

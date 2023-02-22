@@ -7,12 +7,13 @@ import Dashboard from './pages/Dashboard';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Header from './components/Header';
+import { MDBContainer } from 'mdb-react-ui-kit';
 
 function App() {
   return (
     <>
       <Router>
-        <div className='container'>
+        <MDBContainer className='text-center'>
           <Header/>
           <Routes>
             
@@ -22,7 +23,7 @@ function App() {
             <Route path='/' element={<Home/>}></Route>
             
           </Routes>
-        </div>
+        </MDBContainer>
       </Router>
       <ToastContainer/>
     </>

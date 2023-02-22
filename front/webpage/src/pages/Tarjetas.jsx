@@ -71,7 +71,7 @@ function Tarjetas() {
         <MDBTable align='middle' responsive>
         <MDBTableHead>
           <tr>
-            <th scope='col'>Código</th>
+            <th scope='col'>&nbsp;&nbsp;&nbsp;&nbsp;Código&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th scope='col'>Grupo</th>
             <th scope='col'>Maestro</th>
             <th scope='col'>Acciones</th>
