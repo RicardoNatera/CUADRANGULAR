@@ -16,7 +16,7 @@ function Home() {
       <MDBContainer className="my-2 text-center" size='lg'>
         <MDBBtnGroup className="my-5">
         <MDBRadio btn btnColor='info' id='QrReader' name='options' wrapperTag='span' label='Lector QR' onClick={(e)=>{setAction(e.target.id);}} />
-        <MDBRadio btn btnColor='info' id='BuscarTarjetas' name='options' wrapperTag='span' label='Tabla de tarjetas' onClick={(e)=>{setAction(e.target.id)}} />
+        <MDBRadio defaultChecked btn btnColor='info' id='BuscarTarjetas' name='options' wrapperTag='span' label='Tabla de tarjetas' onClick={(e)=>{setAction(e.target.id)}} />
       </MDBBtnGroup>
       <MDBRow>
         {action=="QrReader" ? (
