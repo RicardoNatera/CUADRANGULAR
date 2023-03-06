@@ -1,0 +1,3 @@
+[submodule "back/cuadrangularServer"]
+	path = back/cuadrangularServer
+	url = https://github.com/RicardoNatera/cuadrangularServer.git
