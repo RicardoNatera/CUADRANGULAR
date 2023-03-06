@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "npm --prefix ./back/server/ run startDev",
+    "server": "npm --prefix ./back/cuadrangularServer/ run startDev",
     "client": "npm --prefix ./front/webpage/ run start",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
