@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const API_URL = '/users/'
+const API_PROXY = process.env.API_URL || "http://localhost:5000"
+const API_URL = API_PROXY+'/users/'
 
 //Register user
 const register = async (userData) =>{

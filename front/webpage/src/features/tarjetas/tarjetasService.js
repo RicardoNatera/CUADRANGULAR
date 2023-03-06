@@ -1,6 +1,7 @@
 import axios from "axios"
 
-const API_URL = " /tarjetas/"
+const API_PROXY = process.env.API_URL || "http://localhost:5000"
+const API_URL = API_PROXY+"/tarjetas/"
 
 const getAllCards = async(token) =>{
     const config ={

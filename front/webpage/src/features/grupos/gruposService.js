@@ -1,6 +1,7 @@
 import axios from "axios"
 
-const API_URL = " /grupos/"
+const API_PROXY = process.env.API_URL || "http://localhost:5000"
+const API_URL = API_PROXY+"/grupos/"
 
 const createGroup = async(groupData,token) =>{
     const config ={
