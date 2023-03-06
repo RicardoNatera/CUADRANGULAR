@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_PROXY = process.env.API_URL || "http://localhost:5000"
+const API_PROXY = process.env.BACK_URL || "https://cuadrangularserver-production.up.railway.app"
 const API_URL = API_PROXY+"/maestros/"
 
 const getAllTeachers = async(token) =>{
