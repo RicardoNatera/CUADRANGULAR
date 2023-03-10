@@ -3,12 +3,7 @@ import axios from 'axios'
 const API_PROXY = process.env.BACK_URL || "https://cuadrangularserver-production.up.railway.app"
 const API_URL = API_PROXY+'/users/'
 const configCors = {
-    headers: {
-        'Access-Control-Allow-Origin': '*',
-        'origin':'x-requested-with',
-        'Access-Control-Allow-Headers': 'POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin',
-        'Content-Type': 'application/json',
-    },
+   
 };
 //Register user
 const register = async (userData) =>{
@@ -67,7 +62,7 @@ const getUser = async(id,token) =>{
         headers: configCors.headers   
     }
     config.headers.Authorization= `Bearer ${token}`
-    
+
     const response = await axios.get(API_URL+id, config)
     return response.data
  
