@@ -2,10 +2,17 @@ import axios from 'axios'
 
 const API_PROXY = process.env.BACK_URL || "https://cuadrangularserver-production.up.railway.app"
 const API_URL = API_PROXY+'/users/'
-
+const configCors = {
+    headers: {
+        'Access-Control-Allow-Origin': '*',
+        'origin':'x-requested-with',
+        'Access-Control-Allow-Headers': 'POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin',
+        'Content-Type': 'application/json',
+    },
+};
 //Register user
 const register = async (userData) =>{
-    const response = await axios.post(API_URL,userData)
+    const response = await axios.post(API_URL,userData,configCors)
 
     if(response.data){
         localStorage.setItem('user',JSON.stringify(response.data))
@@ -16,7 +23,7 @@ const register = async (userData) =>{
 
 //Login user
 const login = async (userData) =>{
-    const response = await axios.post(API_URL + 'login',userData)
+    const response = await axios.post(API_URL + 'login',userData,configCors)
 
     if(response.data){
         localStorage.setItem('user',JSON.stringify(response.data))
@@ -33,11 +40,10 @@ const logout = async () =>{
 //Get all users
 const getAllUsers = async(token) =>{
     const config ={
-        headers:{
-            Authorization: `Bearer ${token}`
-        }
+        headers: configCors.headers   
     }
-   
+    config.headers.Authorization= `Bearer ${token}`
+    
     const response = await axios.get(API_URL+'all', config)
     return response.data.data
  
@@ -46,10 +52,10 @@ const getAllUsers = async(token) =>{
 //Delete an user
 const deleteUser = async(id,token) =>{
     const config ={
-        headers:{
-            Authorization: `Bearer ${token}`
-        }
+        headers: configCors.headers   
     }
+    config.headers.Authorization= `Bearer ${token}`
+
     const response = await axios.delete(API_URL+id, config)
     return response.data
  
@@ -58,10 +64,10 @@ const deleteUser = async(id,token) =>{
 //Get an user
 const getUser = async(id,token) =>{
     const config ={
-        headers:{
-            Authorization: `Bearer ${token}`
-        }
+        headers: configCors.headers   
     }
+    config.headers.Authorization= `Bearer ${token}`
+    
     const response = await axios.get(API_URL+id, config)
     return response.data
  
