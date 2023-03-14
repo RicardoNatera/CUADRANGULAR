@@ -17,6 +17,7 @@ function Card({codigo,grupo,maestro,domEl,color}) {
   return (
     <div id="domEl" ref={domEl} className="tarjeta hidden" style={{borderColor:color, borderStyle:'solid',borderWidth:'10px'}}>
         <section>
+            <h1>ICTHUS</h1>
             <canvas ref={canvasRef} />
             <h3>{codigo}</h3>
         </section>

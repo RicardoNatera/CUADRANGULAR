@@ -38,11 +38,12 @@ function CardItem({ card, grupo, maestro }) {
                 <FaTrashAlt/>
               </MDBBtn>
               <MDBBtn onClick={()=>downloadCard()} rounded size='sm' color='success'>
-                <FaDownload/>
+                {grupo && maestro ? <FaDownload/>:(<span>Cargando</span>)}
             </MDBBtn>
             </div>
           </td>
-          <Card codigo={card.codigo} grupo={grupo ? grupo.nombre:""} maestro={maestro ? maestro.nombre+' '+maestro.apellido:""} color={grupo ? grupo.color:""} domEl={domEl}/>
+          {!grupo || !maestro ? (<></>):<Card codigo={card.codigo} grupo={grupo ? grupo.nombre:""} maestro={maestro ? `${maestro.nombre} ${maestro.apellido}`:""} color={grupo ? grupo.color:""} domEl={domEl}/>}
+          
         </tr>
   )
 }
